@@ -10,6 +10,7 @@ jobs:
           # Must be absolute path or relative path from working_directory
           at: src
       - run: |
+          apk update && apk add rsync
           rsync -va src max@glassempty.com:/home/max/
           ssh max@glassempty.com php /home/max/src/index.php
 workflows:
